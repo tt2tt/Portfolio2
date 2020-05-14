@@ -1,4 +1,8 @@
 class RoutinesController < ApplicationController
+  def index
+    @routines = Routine.all
+  end
+
   def new
     @routine = Routine.new
   end
@@ -6,6 +10,7 @@ class RoutinesController < ApplicationController
   def create
     @routine = Routine.new(routine_params)
     @routine.save
+    redirect_to routines_path
   end
 
   def routine_params
