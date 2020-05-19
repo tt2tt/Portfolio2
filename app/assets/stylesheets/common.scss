@@ -1,0 +1,13 @@
+@import "bootstrap";
+
+// header
+header{
+  height: 50px;
+  border-bottom: 1px solid #000;
+}
+header h1{
+  display: inline;
+}
+header li{
+  float: right;
+}
