@@ -1,5 +1,5 @@
 class RoutinesController < ApplicationController
-  before_action :set_id, only:[:show, :edit, :update]
+  before_action :set_id, only:[:show, :edit, :update, :destroy]
 
   def index
     @routines = Routine.all
@@ -23,6 +23,11 @@ class RoutinesController < ApplicationController
 
   def update
 	 @routine.update(routine_params)
+    redirect_to routines_path
+  end
+
+  def destroy
+    @routine.destroy
     redirect_to routines_path
   end
 
