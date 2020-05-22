@@ -2,7 +2,7 @@ class RoutinesController < ApplicationController
   before_action :set_id, only:[:show, :edit, :update, :destroy]
 
   def index
-    @routines = Routine.all
+    @routines = current_user.routines
   end
 
   def new
@@ -16,7 +16,7 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    @routine = Routine.new(routine_params)
+    @routine = current_user.routines.build(routine_params)
     @routine.save
     redirect_to routines_path
   end

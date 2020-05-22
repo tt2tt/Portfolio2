@@ -1,7 +1,8 @@
-- @routines.each do |routine|
-  div
-    = routine.name
-    = routine.content
-    = link_to 'Show', routine
-    = link_to 'Edit', edit_routine_path(routine)
-    = link_to 'Destroy', routine, method: :delete, data: { confirm: 'Are you sure?' }
+- unless @routines == nil
+  - @routines.each do |routine|
+    div
+      = routine.name
+      = routine.content
+      = link_to 'Show', routine
+      = link_to 'Edit', edit_routine_path(routine)
+      = link_to 'Destroy', routine, method: :delete, data: { confirm: 'Are you sure?' }
