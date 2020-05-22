@@ -1,8 +1,10 @@
 class RoutinesController < ApplicationController
   before_action :set_id, only:[:show, :edit, :update, :destroy]
 
+  PER = 5
+
   def index
-    @routines = current_user.routines
+    @routines = current_user.routines.page(params[:page]).per(PER)
   end
 
   def new
